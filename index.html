@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade 45 - Acceso</title>
+    <style>
+        /* Fondo negro y centrado total */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Usa todo el alto de la pantalla */
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            color: #00f2ff; /* Color cian para combinar con la imagen */
+        }
+
+        .boton-imagen {
+            cursor: pointer;
+            transition: transform 0.1s, filter 0.3s;
+            width: 300px; /* Tamaño ajustado para que luzca mejor */
+            border-radius: 10px;
+        }
+
+        /* Efecto al presionar */
+        .boton-imagen:active {
+            transform: scale(0.92);
+            filter: brightness(1.5);
+        }
+
+        /* Opcional: brillo al pasar el mouse */
+        .boton-imagen:hover {
+            filter: drop-shadow(0 0 15px #00f2ff);
+        }
+    </style>
+</head>
+<body>
+
+    <h2></h2>
+
+    <audio id="miSonido">
+        <source src="Access_Granted.mp3" type="audio/mpeg">
+        
+    </audio>
+
+    <img src="boton.png" 
+         alt="Botón Upgrade 45" 
+         class="boton-imagen" 
+         onclick="reproducir()">
+
+    <script>
+        function reproducir() {
+            const sonido = document.getElementById('miSonido');
+            
+            // Reinicia el audio para permitir clics rápidos
+            sonido.currentTime = 0; 
+            
+            // Intenta reproducir el sonido
+            sonido.play().catch(error => {
+                console.log("El navegador bloqueó el audio. Haz clic de nuevo.");
+            });
+        }
+    </script>
+
+</body>
+</html>
